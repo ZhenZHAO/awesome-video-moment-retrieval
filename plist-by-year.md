@@ -1,0 +1,421 @@
+# VMR Papers by Year
+
+> from https://github.com/yawenzeng/Awesome-Cross-Modal-Video-Moment-Retrieval, will update soon.
+
+Temporally Language Grounding，text-to-clip retrieval，query-based moment retrieval
+
+Temporal Sentence Grounding in Videos (**TSGV**) Natural Language Video Localization (**NLVL**) Video Moment Retrieval (**VMR**) 
+
+- 使用一段文本检索视频中的对应片段/时刻。
+- 该任务的目标是给定一段语言描述，在一个未经裁剪的长视频中定位出该语言所描述的视频片段。
+
+# 2017:2
+1[ICCV 2017] [CTRL] TALL Temporal Activity Localization via Language Query:o:   
+
+- https://github.com/jiyanggao/TALL
+
+2[ICCV 2017] [MCN] Localizing Moments in Video with Natural Language:o:  
+
+- https://github.com/LisaAnne/LocalizingMoments
+
+[ICCV 2017] [CTRL] TALL Temporal Activity Localization via Language Query  
+
+* 动机：开山之作，点出该问题需要解决的两大困难1作为跨模态任务，如何得到适当的文本和视频表示特征，以允许跨模态匹配操作和完成语言查询。2理论上可以生成无限粒度的视频片段，然后逐一比较。但时间消耗过大，那么如何能够从有限粒度的滑动窗口做到准确的具体帧定位。
+* 方法：特征抽取--使用全局的sentence2vec和C3D。模态交互--加+乘+拼+FC。多任务：对齐分数+回归。
+
+[ICCV 2017] [MCN] Localizing Moments in Video with Natural Language  
+* 方法：特征抽取--使用全局的LSTM和VGG。模态交互--无。多任务：模态间的均方差（而不是预测对齐分数），同时使用RGB和 optical flow光流。
+
+#年度关键词：两条路。
+
+
+# 2018:5
+3[MM 2018] Cross-modal Moment Localization in Videos:o:  
+4[SIGIR 2018] Attentive Moment Retrieval in Videos:o:  
+5[EMNLP 2018] Localizing Moments in Video with Temporal Language  
+6[EMNLP 2018] Temporally Grounding Natural Sentence in Video  
+7[IJCAI 2018] Multi-modal Circulant Fusion for Video-to-Language and Backward  
+
+[MM 2018] Cross-modal Moment Localization in Videos  
+* 动机：强调时间语态问题，即句子中的“先”“前”往往被忽视，需要更细致的理解。
+* 方法：尝试结合上下文，用文本给视频加attention。
+
+[SIGIR 2018] Attentive Moment Retrieval in Videos  
+* 方法：尝试结合上下文，用视频给文本加attention。以上两篇的特征处理由于要加attention就开始局部化。
+
+[EMNLP 2018] Localizing Moments in Video with Temporal Language  
+* 动机：时序上下文是很重要的，不然无法理解句子中一些词之间的关系。
+* 方法：延续MCN的思路走算匹配度无模态交互，且同时使用RGB和 optical flow光流。特征抽取--LSTM，视频表示上同时融合了多种上下文。
+
+[EMNLP 2018] Temporally Grounding Natural Sentence in Video  
+* 动机：捕捉视频和句子之间不断发展的细粒度的交互。
+* 方法：从每帧/逐词。使用两组lstm处理每个时刻文本和视频的交互。
+
+[IJCAI 2018] Multi-modal Circulant Fusion for Video-to-Language and Backward   
+* 动机：增强视觉和文本表达的融合
+* 方法：同时使用vector和matrix的融合方式，其中circulant matrix的操作方式是每一行平移一个元素以探索不同模态向量的所有可能交互。
+
+#年度关键词：上下文。
+
+
+# 2019: 16
+8[AAAI 2019] Localizing Natural Language in Videos  
+9[AAAI 2019] Multilevel language and vision integration for text-to-clip retrieval  
+10[AAAI 2019] Semantic Proposal for Activity Localization in Videos via Sentence Query  
+11[AAAI 2019] To Find Where You Talk Temporal Sentence Localization in Video with Attention Based Location Regression  
+12[AAAI 2019] Read, Watch, and Move Reinforcement Learning for Temporally Grounding Natural Language Descriptions in Videos:o:  
+13[CVPR 2019] MAN_ Moment Alignment Network for Natural Language Moment Retrieval via Iterative Graph Adjustment:o:  
+14[CVPR Workshop 2019] Tripping through time Efficient Localization of Activities in Videos  
+15[CVPR 2019] Language-Driven Temporal Activity Localization A Semantic Matching Reinforcement Learning Model:o:  
+16[CVPR 2019] Weakly Supervised Video Moment Retrieval From Text Queries:o:  
+17[ICMR 2019] Cross-Modal Video Moment Retrieval with Spatial and Language-Temporal Attention:o:  
+18[MM 2019] Exploiting Temporal Relationships in Video Moment Localization with Natural Language  
+19[NIPS 2019] Semantic Conditioned Dynamic Modulation for Temporal Sentence Grounding in Videos  
+20[SIGIR 2019] Cross-modal interaction networks for query-based moment retrieval in videos  
+21[WACV2019] MAC: Mining Activity Concepts for Language-Based Temporal Localization  
+22[ArXiv 2019] Temporal Localization of Moments in Video Collections with Natural Language  
+23[ArXiv 2019] wMAN Weakly-supervised Moment Alignment Network for Text-based Video Segment Retrieval  
+
+[AAAI 2019] Localizing Natural Language in Videos  
+* 动机：以前的工作忽略模态间细粒度的交互和上下文信息。
+* 方法：交叉门控的递归网络来匹配自然句子和视频序列（类似cross-attention），以完成细粒度交互。
+
+[AAAI 2019] Multilevel language and vision integration for text-to-clip retrieval  
+* 动机：global embedding缺少细粒度，且不同模态之间独立嵌入缺乏交互。
+* 方法：先融语义再用R-C3D生成候选时刻以加快效率。同时用LSTM对查询语句和视频片段之间的细粒度相似性进行时序融合。
+
+[AAAI 2019] Semantic Proposal for Activity Localization in Videos via Sentence Query  
+* 动机：滑动窗口数据量多，效率低。
+* 方法：将句子中的语义信息集成到动作候选生成过程中以得到更好的时刻候选集。
+* 其他：该任务不同于时序动作定位的地方 （1）某一个动作是各种行动的组合，可能持续很长时间。 （2）句子查询不限于预定义的类列表。 （3）视频通常包含多个不同的活动实例。
+
+[AAAI 2019] To Find Where You Talk Temporal Sentence Localization in Video with Attention Based Location Regression  
+* 动机：1视频的时间结构和全局上下文没有充分探索2句子处理太粗3候选切分太耗时。
+* 方法：特征抽取--全局+局部，即用C3D+BiLSTM处理视频，用Glove+BiLSTM处理文本。然后co-attention进行对齐。并且不做切分，直接预测定位点。
+
+[AAAI 2019] Read, Watch, and Move Reinforcement Learning for Temporally Grounding Natural Language Descriptions in Videos  
+* 动机：候选太耗时。
+* 方法：首次将强化学习引入到这个领域，处理成顺序决策问题。
+
+[CVPR 2019] MAN_ Moment Alignment Network for Natural Language Moment Retrieval via Iterative Graph Adjustment  
+* 动机：语义失调和结构失调（候选集之间的处理是独立的）。
+* 方法：特征抽取--LSTM和I3D。使用迭代图学习候选时刻之间的关系。
+
+[CVPR Workshop 2019] Tripping through time Efficient Localization of Activities in Videos  
+* 动机：1文本和视频的联合表示以local细粒化。2候选效率低且不符合人类的自然定位方法。
+* 方法：使用门控注意力建模细粒度的文本和视觉表示+强化学习定位。
+
+[CVPR 2019] Language-Driven Temporal Activity Localization A Semantic Matching Reinforcement Learning Model  
+* 动机：直接匹配句子与视频内容使强化学习表现不佳，更需要更多的关注句子和图片中目标的细粒度来增强语义。
+* 方法：在强化学习框架下引入语义特征。
+
+[CVPR 2019] Weakly Supervised Video Moment Retrieval From Text Queries  
+* 动机：标注句子边界太耗时，且不可扩展在实践中
+* 方法：弱监督--在训练时不需要对文本描述进行时间边界注释，而只使用视频级别的文本描述。技术上主要使用文本和视频在时序上的注意力对齐。
+
+[ICMR 2019] Cross-Modal Video Moment Retrieval with Spatial and Language-Temporal Attention  
+* 动机：没有关注空间目标信息和文本的语义对齐，且需要结合视频的时空信息。
+* 方法：特征抽取--全局+局部，即全局还是用C3D和BiLSTM。然后全局特征分别给局部（词和目标）加attention突出重点。
+
+[MM 2019] Exploiting Temporal Relationships in Video Moment Localization with Natural Language  
+* 动机：之前对文本的处理是Global，而文本中事件之间的时间依赖和推理没有得到充分考虑。
+* 方法：树注意网络将文本分为主事件，上下文时间，时间信号。
+
+[NIPS 2019] Semantic Conditioned Dynamic Modulation for Temporal Sentence Grounding in Videos  
+* 动机：现有的方法主要做语义匹配和对齐，而忽略了句子信息在视频的时间关联和组合中起着重要作用。
+* 方法：提出语义条件动态调制(SCDM)机制，它依靠句子语义来调节时间卷积运算，从而更好地关联和组合句子相关的视频内容。
+
+[SIGIR 2019] Cross-modal interaction networks for query-based moment retrieval in videos  
+* 动机：对句子处理的细粒度不够（语境长依赖）。
+* 方法：对切分的词构建语义树/图抽特征。
+
+[WACV2019] MAC: Mining Activity Concepts for Language-Based Temporal Localization  
+* 动机：联合嵌入的子空间忽略了有关视频和查询中动作的丰富语义线索
+* 方法：从视频和语言模态中挖掘动作概念，其他部分同TALL。
+
+[ArXiv 2019] Temporal Localization of Moments in Video Collections with Natural Language  
+* 动机：欧几里德居来来衡量文本视频距离不好（MCN的对比路线），无法大规模应用。
+* 方法：使用平方差距离更精准的对齐，并应用视频重排序方法以应对大规模视频库。
+
+[ArXiv 2019] wMAN Weakly-supervised Moment Alignment Network for Text-based Video Segment Retrieval  
+* 动机：自动推断无监督的视觉和语言表示之间的潜在对应关系/对齐。
+* 方法：词条件视觉图以捕捉交互，并应用多实例学习完成无监督下的细粒度对齐。
+
+
+#年度关键词：文本和视频的细粒化+强化学习+候选框关系/生成+弱监督。
+
+
+# 2020:22
+24[AAAI 2020] Temporally Grounding Language Queries in Videos by Contextual Boundary-aware Prediction  
+25[AAAI 2020] Tree-Structured Policy based Progressive Reinforcement Learning for Temporally Language Grounding in Video  
+26[AAAI 2020] Learning 2D Temporal Adjacent Networks for Moment Localization with Natural Language:o:  
+27[AAAI 2020] Weakly-Supervised Video Moment Retrieval via Semantic Completion Network  
+28[TIP 2020] Moment Retrieval via Cross-Modal Interaction Networks With Query Reconstruction:o:  
+29[MM 2020] Adversarial Video Moment Retrieval by Jointly Modeling Ranking and Localization:o:  
+30[MM 2020] STRONG: Spatio-Temporal Reinforcement Learning for Cross-Modal Video Moment Localization  
+31[MM 2020] Dual Path Interaction Network for video Moment Localization  
+32[MM 2020] Regularized Two-Branch Proposal Networks for Weakly-Supervised Moment Retrieval in Videos  
+33[ECCV 2020] VLANet: Video-Language Alignment Network for Weakly-Supervised Video Moment Retrieval  
+34[WACV2020] Proposal-free Temporal Moment Localization of a Natural-Language Query in Video using Guided Attention  
+35[ECCV 2020] TVR A Large-Scale Dataset for Video-Subtitle Moment Retrieval  
+36[ArXiv 2020] Video Moment Localization using Object Evidence and Reverse Captioning  
+37[ArXiv 2020] Graph Neural Network for Video-Query based Video Moment Retrieval  
+38[ArXiv 2020] Text-based Localization of Moments in a Video Corpus  
+39[ArXiv 2020] Generating Adjacency Matrix for Video-Query based Video Moment Retrieval  
+40[BMVC 2020] Uncovering Hidden Challenges in Query-Based Video Moment Retrieval  
+41[ArXiv 2020] Video Moment Retrieval via Natural Language Queries  
+42[ArXiv 2020] Frame-wise Cross-modal Match for Video Moment Retrieval  
+43[MM 2020] Fine-grained Iterative Attention Network for Temporal Language Localization in Videos  
+44[MM 2020] Jointly Cross- and Self-Modal Graph Attention Network for Query-Based Moment Localization  
+45[CVPR 2020] Dense Regression Network for Video Grounding  
+
+[AAAI 2020] Temporally Grounding Language Queries in Videos by Contextual Boundary-aware Prediction  
+* 动机：当模型无法定位最佳时刻时，添加的偏移回归可能会失败。
+* 方法：语言集成的“感知”周围的预测，即每个时间步长都会预测时间锚和边界。
+
+[AAAI 2020] Tree-Structured Policy based Progressive Reinforcement Learning for Temporally Language Grounding in Video  
+* 动机：现有的方法大多存在效率低下、缺乏可解释性和偏离人类感知机制（从粗到细）问题。
+* 方法：基于树结构政策的渐进强化学习(TSP-PRL)框架，通过迭代细化过程来顺序地调节时间边界。
+
+[AAAI 2020] Learning 2D Temporal Adjacent Networks for Moment Localization with Natural Language  
+* 动机：以往模型一般单独考虑时间，忽视了时间的依赖性。（不能在当前时刻对其他时刻进行预测）。
+* 方法：时间从一维变为二维，即变成二维矩阵，预测每一个位置的score。
+
+[AAAI 2020] Weakly-Supervised Video Moment Retrieval via Semantic Completion Network  
+* 动机：弱监督的注意力权重通常只对很明显的区域有反应，即候选太相似。
+* 方法：候选生成--视觉语义词和文本对齐得到分数，并反馈给候选生成的打分。
+
+[TIP 2020] Moment Retrieval via Cross-Modal Interaction Networks With Query Reconstruction  
+* sigir19的扩充，增加查询重建任务，整体上联合自然语言查询的句法依赖、视频上下文中的长程语义依赖和足够的跨模态交互一起建模。
+
+[MM 2020] Adversarial Video Moment Retrieval by Jointly Modeling Ranking and Localization  
+* 动机：强化学习定位不稳定，检索任务候选框效率低。
+* 方法：用对抗学习联合建模，即用强化学习定位来生成候选，进而在生成候选集上进行检索。
+
+[MM 2020] STRONG: Spatio-Temporal Reinforcement Learning for Cross-Modal Video Moment Localization  
+* 动机：空间上的场景信息很重要+候选框效率低。
+* 方法：除了时序上的强化学习，其在空间上也加入强化学习，并以弱监督追踪的方式聚焦场景，去除冗余。
+
+[MM 2020] Dual Path Interaction Network for video Moment Localization  
+* 动机：很少有研究将候选框层级的对齐信息（算语义匹配分数的技术路线）和帧层级的边界信息（预测边界起止的路线）结合在一起，并考虑它们之间的互补性。
+* 方法：双路径交互网络(DPIN)，分别做两大任务，同时两者之间通过信息交互相互增强。
+
+[MM 2020] Regularized Two-Branch Proposal Networks for Weakly-Supervised Moment Retrieval in Videos  
+* 动机：大多数现有的弱监督方法都采用基于多实例的框架来做样本间对抗，但忽略了相似内容之间的样本间对抗。
+* 方法：同时考虑样本间和样本内的对抗，其中会采用语言感知得到两个分支的视觉表示（被增强的和被印制的），这两者将构成很强的正负样本对。
+
+[ECCV 2020] VLANet: Video-Language Alignment Network for Weakly-Supervised Video Moment Retrieval  
+* 动机：粗略的查询表示和单向注意机制导致模糊的注意映射。
+* 方法：修剪候选集+更细粒度的多注意力机制来获得更好的注意力增加定位性能。
+
+[WACV2020] Proposal-free Temporal Moment Localization of a Natural-Language Query in Video using Guided Attention  
+* 动机：不依赖候选的端对端框架，文本注释主观性。
+* 方法：使用attention的动态过滤器（利用文本对视频的过滤），软标签分布损失解决文本注释的不确定性。
+
+[ECCV 2020] TVR A Large-Scale Dataset for Video-Subtitle Moment Retrieval  
+* 动机：视频+字幕才能进一步的理解。
+* 方法：提出一个新数据集，并设计一个类似多Transformer的模型完成不同模态的理解和融合。
+
+[ArXiv 2020] Video Moment Localization using Object Evidence and Reverse Captioning  
+* 动机：仅仅有语义概念是不够的，还需要对象和字幕的补充。
+* 方法：在MAC（视频，视觉语义概念，文本，文本语义概念）的方法上再增加对象和字幕的特征。
+
+[ArXiv 2020] Graph Neural Network for Video-Query based Video Moment Retrieval  
+* 动机：帧间的特征相似度与视频间的特征相似度之间存在不一致，这会影响特征融合。
+* 方法：沿时间维度对视频构多个图，然后再做多图特征融合。
+
+[ArXiv 2020] Text-based Localization of Moments in a Video Corpus  
+* 动机：text-video可能会有一对多+搜索全库是必要的
+* 方法：层次时刻对齐网络能更好的编码跨模态特征以理解细微的差异，然后做模态内的三元组和模态间的三元组以应对搜索所有的时刻。
+
+[ArXiv 2020] Generating Adjacency Matrix for Video-Query based Video Moment Retrieval  
+* 动机：现有利用图技术的方法得到的邻接矩阵是固定的。
+* 方法：使用图抽取模态内和模态间的特征关系。
+
+[BMVC 2020] Uncovering Hidden Challenges in Query-Based Video Moment Retrieval  
+* 讨论性文章：虽然现有技术已经取得了很好的提高，这篇文章探究了存在的两大问题，1数据集存在偏差，2评价指标不一定可靠。
+
+[ArXiv 2020] Video Moment Retrieval via Natural Language Queries  
+* 动机：起止时间标记有噪音，需要结合上下文的更好表示。
+* 方法：多头自我注意+交叉注意力，以捕获视频/查询交互和远程查询依存关系。多任务学习中加入moment segmentation任务。
+
+[ArXiv 2020] Frame-wise Cross-modal Match for Video Moment Retrieval  
+* 动机：以往的方法不能很好地捕获查询和视频帧之间的跨模态交互。
+* 方法：利用注意力对齐，做帧间的预测和边界预测两个任务。
+
+[MM 2020] Fine-grained Iterative Attention Network for Temporal Language Localization in Videos
+* 动机：现有工作只集中在从视频到查询的单向交互上。
+* 方法：针对句子和视频的cross-attention做双向相互。
+
+[MM 2020] Jointly Cross- and Self-Modal Graph Attention Network for Query-Based Moment Localization
+* 动机：视频大部分都无关，只有小部分视频相关，所以应该更加重视两者的融合。
+* 方法：提出模态间和模态内两种交互模式，以帧和词构图通过消息传递来增强表示。
+
+[CVPR 2020] Dense Regression Network for Video Grounding
+* 动机：以往训练的模型都是在正负例样本不平衡的情况下，所以作者尝试利用帧之间的距离作为更密集的监督信号。
+* 方法：预测起始结束帧，然后认为只要在ground truth中的片段都认为是正例。
+
+#年度关键词：任务扩展（如对全库搜索moment，增加字幕，标定鲁棒性等等），继续细化和融合，候选框关系。  
+#研究热情高涨，水文趋势开始增加....
+
+
+# 2021:11
+46[CVPR 2021] Multi-Modal Relational Graph for Cross-Modal Video Moment Retrieval:o:  
+47[WACV2021] LoGAN: Latent Graph Co-Attention Network for Weakly-Supervised Video Moment Retrieval  
+48[arxiv2021] A Closer Look at Temporal Sentence Grounding in Videos_ Datasets and Metrics:o:  
+49[CVPR2021] Interventional Video Grounding with Dual Contrastive Learning  
+50[SIGIR2021] Video Corpus Moment Retrieval with Contrastive Learning  
+51[SIGIR2021] Deconfounded Video Moment Retrieval with Causal Intervention  
+52[SIGIR2021] Cross Interaction Network for Natural Language Guided Video Moment Retrieval  
+53[ACL2021] mTVR: Multilingual Moment Retrieval in Videos  
+53[ICCV2021] Fast Video Moment Retrieval  
+54[MM2021] CONQUER: Contextual Query-aware Ranking for Video Corpus Moment Retrieval  
+
+
+[CVPR 2021] Multi-Modal Relational Graph for Cross-Modal Video Moment Retrieval
+* 动机：基于候选的方法会导致候选之间非常相似难以区别，那么直接理解内容（局部目标）的细微变化会是更好的选择。
+* 方法：提出多模态关系图模型来捕捉视频中的局部目标之间的时空关系，并且在图预训练的框架下优化特征表达。
+
+[WACV2021] LoGAN: Latent Graph Co-Attention Network for Weakly-Supervised Video Moment Retrieval  
+* 动机：改善视频与文本之间的 latent alignment，学习上下文的视觉语义表征。
+* 方法：提出 latent co-attention 模型，通过多级 coattention 机制+在视频上的positional encodings。
+
+[Arxiv2021] A Closer Look at Temporal Sentence Grounding in Videos_ Datasets and Metrics
+* 动机：这应该是最近很不错的文章了，详细讨论了现有数据集的偏差问题（即可能模型不需要学什么内容，直接学数据偏差就有不错的结果）。
+* 方法：然后作者提供了新的datasets和metrics，这个工作其实展现了现有的经典模型还是有比较多的问题，在这种去偏数据集下表现得很不理想。
+
+[CVPR2021] Interventional Video Grounding with Dual Contrastive Learning
+* 动机：这篇同样也是探究数据集中的选择偏差，从而使某些text和moment存在虚假关联。
+* 方法：提出双对比学习+因果推理。双对比学习是VV和QV，即尝试尽可能分离moment之间和moment query之间的语义。因果推理则利用因果干预P(Y|do(X))和事件作为混杂因素来学习表示。
+
+[SIGIR2021] Video Corpus Moment Retrieval with Contrastive Learning
+* 动机：一般使用的跨模态交互学习，高效率和高质量检索之间很难同时保持。
+* 方法：直接引入对比学习来改进视频编码器和文本编码器。其中视频对比学习旨在最大程度地提高查询和候选视频之间的相互信息。帧对比学习的目的是突出视频中帧级查询对应的片段。
+
+[SIGIR2021] Deconfounded Video Moment Retrieval with Causal Intervention
+* 动机：现有的模型往往都利用数据集偏差，如何减少这种偏差是很重要的。
+* 方法：提出一个结构性受因果关系启发的框架。具体来说提出解纠缠的跨模态匹配(DCM)方法来消除位置对预测结果的混杂效应，其先推断视觉内容的核心特征，然后用对基于后门调整的解纠缠多模态输入进行因果干预，迫使模型公平地考虑目标的每个可能的位置。
+
+[SIGIR2021] Cross Interaction Network for Natural Language Guided Video Moment Retrieval
+* 动机：现有技术一般只强调文本到视频的单交互，且设计复杂效率低。
+* 方法：提出结合一种自我注意和交叉交互的多头部注意机制，以捕获视频查询的内部依赖关系以及两个方向的相互关系。
+
+[ACL2021] mTVR: Multilingual Moment Retrieval in Videos
+* 动机：短文。提出一个的大规模新数据集，其中有双语数据。
+
+[ICCV2021] Fast Video Moment Retrieval
+* 动机：现有模型的跨模态交互模块太耗时，想要提高时间。
+* 方法：提出细粒度的语义蒸馏框架来转移知识，即用跨模态公共空间替换跨模态交互模块，其中蒸馏过程将语义转移到公共空间。
+
+[MM2021] CONQUER: Contextual Query-aware Ranking for Video Corpus Moment Retrieval
+* 动机：目前的单阶段方法无法处理实时的结果，同时计算和存储复杂。
+* 方法：使用两阶段的步骤，即这两个步骤是先依赖查询进行视频内容的自适应融合，再执行双向注意以结合某个clip内容进行时刻定位学习，以学习聚合剪辑和查询信息的新表示。
+
+[MM2021] Visual Co-Occurrence Alignment Learning for Weakly-Supervised Video Moment Retrieval
+
+#年度关键词：数据集问题，更细致的视频理解，对比学习。  
+#注：由于文章众多，暂时只整理顶会中比较角度不一样的文章。
+
+
+# 2022:x
+55[Survey] A Survey on Temporal Sentence Grounding in Videos:o:  
+56[Survey] The Elements of Temporal Sentence Grounding in Videos: A Survey and Future Directions:o:  
+57[TIP2022] Video Moment Retrieval With Cross-Modal Neural Architecture Search  
+58[TMM2022] Regularized Two Granularity Loss Function for Weakly Supervised Video Moment Retrieval  
+59[TOMM2022] Moment is Important: Language-Based Video Moment Retrieval via Adversarial Learning  
+60[CVPR2022] UMT: Unified Multi-modal Transformers for Joint Video Moment Retrieval and Highlight Detection  
+61[Arxiv2022] Explore and Match: End-to-End Video Grounding with Transformer  
+62[AAAI2022] Unsupervised Temporal Video Grounding with Deep Semantic Clustering:o:  
+63[AAAI2022] Memory-Guided Semantic Learning Network for Temporal Sentence Grounding  
+64[ICMR2022] Learning Sample Importance for Cross-Scenario Video Temporal Grounding  
+65[SIGIR2022] Point Prompt Tuning for Temporally Language Grounding:o:  
+66[SIGIR2022] Video Moment Retrieval from text Queries via Single Frame Annotation  
+67[SIGIR2022] You Need to Read Again: Multi-granularity Perception Network for Moment Retrieval in Videos  
+
+[Survey] A Survey on Temporal Sentence Grounding in Videos  
+[Survey] The Elements of Temporal Sentence Grounding in Videos: A Survey and Future Directions  
+* 动机：这两篇综述文章都写的很好，可以详细看看  
+
+[TIP2022] Video Moment Retrieval With Cross-Modal Neural Architecture Search  
+* 动机：以往的工作都依赖手工or专家设计，不够灵活。
+* 方法：使用神经架构搜索来做VMR任务。具体来说，基于有向无环图搜索可重复的单元网络架构，然后，通过查询感知的注意力调节无环图中的边权。
+
+[TMM2022] Regularized Two Granularity Loss Function for Weakly Supervised Video Moment Retrieval  
+* 动机：弱监督视频时刻检索。
+* 方法：设计双粒度损失函数考虑视频级和实例级关系。具体来说，先生成粗粒度的视频片段，然后利用所有视频内片段（即正例）和文本描述之间的多实例学习。然后将此过程视为噪声标签下的弱监督学习任务来对进一步这些片段进行分类进行精细度定位。
+
+[TOMM2022] Moment is Important: Language-Based Video Moment Retrieval via Adversarial Learning  
+* 动机：[29]的扩展论文，对抗性VMR在训练时容易不稳定。
+* 方法：因此将多个子任务变为持续学习的形式以优化对抗性VMR的学习。
+
+[CVPR2022] UMT: Unified Multi-modal Transformers for Joint Video Moment Retrieval and Highlight Detection  
+* 动机：联合moment retrieval和highlight detection这俩子任务以更好地为应用服务。
+* 方法：视频和音频首先通过uni-modal进行融合，如果query不提供将生成query，不然就直接完成编码后预测highlight和offset。
+
+[Arxiv2022] Explore and Match: End-to-End Video Grounding with Transformer  
+* 动机：统一proposal-free（直接预测的探索）和proposal-based（切分再检索的匹配）这俩方案。
+* 方法：将该任务定义为一个集合预测问题，先探索再匹配。首先时间定位损失执行proposal-free，然后设置指导损失将每个查询进行匹配。
+
+[AAAI2022] Unsupervised Temporal Video Grounding with Deep Semantic Clustering  
+* 动机：无监督TVG。在现实场景中收集数据既昂贵又耗时，这是第一篇做无监督的文章。
+* 方法：使用提出深度语义聚类网络（DSCNet）利用整个查询集中的所有语义信息来组合每个视频中可能的活动以进行定位。具体来说，先从整个查询集中提取隐式语义特征，然后将其作为指导在视频中组合活动，最后利用前景注意力分支过滤掉多余的背景活动并细化定位结果。
+
+[AAAI2022] Memory-Guided Semantic Learning Network for Temporal Sentence Grounding  
+* 动机：数据分布不平衡，容易忘记训练过程中很少出现的情况，这会影响模型的泛化能力。
+* 方法：使用记忆增强网络来学习和记忆。具体来说，跨模态图卷积网络对齐给定的视频查询对，然后利用内存模块将跨模态共享语义特征记录内存中，来减轻遗忘问题。
+
+[ICMR2022] Learning Sample Importance for Cross-Scenario Video Temporal Grounding  
+* 动机：针对superficial biases的文章（如[48]中提过的某些时间偏好等等）。
+* 方法：提出去偏时间语言定位器 (DebiasTLL) ，其同时训练两个模型，如果这两个模型在判断样本时的预测差异大，则成为有偏样本的可能性更高。因此利用信息差异设计数据重新加权方案来减轻数据偏差。
+
+[SIGIR2022] Point Prompt Tuning for Temporally Language Grounding  
+* 动机：基于Prompt learning的新方法。作者认为现有方法都没有能够利用好现有预训练大模型的成果，但其实利用Prompt技巧就能够做得很好。
+* 方法：加入Prompt、改装TLG任务以适应大模型，几乎是文本和视频直接作为input输入即可。速度较快，训练只需要训练几层FC，就能轻松利用大模型的语义能力。
+
+[SIGIR2022] Video Moment Retrieval from text Queries via Single Frame Annotation  
+* 动机：完全监督很贵，但其实只需要"glance annotation"就够了。
+* 方法：只需要在完全监督内的随机帧，即“一瞥”，加上对比学习在clip和query之间进行对比，其中“一瞥”的高斯分布权重分配给所有clip。
+
+[SIGIR2022] You Need to Read Again: Multi-granularity Perception Network for Moment Retrieval in Videos  
+* 动机：以前的方法倾向于以粗略的方式执行单模态学习和跨模态交互，而忽略了视频内容、查询上下文及其对齐中包含的细粒度线索。
+* 方法：提出多粒度感知网络，在多粒度级别感知模态内和模态间信息。
+
+
+
+#年度关键词：新的任务形态、多范式的结合、更高效、提示学习的应用。  
+#新玩法开始变得多样起来。  
+
+#等MM22开会了再补文章。
+
+----------
+## 稍作分类
+* 两条路：处理成预测任务[1]；处理成匹配任务[2]。大多数文章都follow了[1]，也有少数沿着[2]的路线的文章如[5][22]，也有融合这两条路线的[33]。  
+
+跨模态视频时刻相关任务主要需要集中解决的问题有两点：一.跨模态 二.高效检索/定位  
+
+对于一.  
+
+* 模态特征的细化：模态间的交互和融合[3-9，37，39，42]，局部对齐[17-19]，模态表征细粒度[20，21，28]，视觉目标间的关系[46]
+* 结合其他外部信息，如字幕[35，36]
+
+对于二.  
+检索方法主要涉及到候选集的问题  
+* 常规方法会提前切分好，或者修剪候选集[33]
+* 生成候选：预测一些可能的边界[10]
+* 探讨候选之间的关系：使用图或者矩阵的形式[13，26]
+* 正负例样本不平衡问题[45]
+
+定位方法可分直接预测和强化学习  
+* 直接预测起止点：[11，31，34，36，38]，对边界预测的多任务增强如边界感知[24]，moment segmentation[41]。
+* 强化学习：[12，14，15，25，29]，主要涉及一些语义概念融合，如何使强化学习更高效。
+
+也有融合定位和检索的方法[30]，和其他任务结合的方法[50,60]  
+
+除了一和二问题的，其他话题  
+* 标注text-video对太耗时，无监督方法[16，23，27，32]，主要会使用注意力对齐，正负样本对抗，多示例学习等等技术。
+* 标注鲁棒性[34，40，41，48，49]，解决方案主要有比较分布和标注预测，因果推理，去偏。
+* 收集数据集太耗时[62,66]，也是转向于无监督或者少样本学习。
+* 搜索全库视频时刻[35，38]，要求对模态内和模态外都有更好的理解和区分能力。
+
+----------
+#### 有推荐的“好”论文但未被list的请私信我，感谢各位contributor！
