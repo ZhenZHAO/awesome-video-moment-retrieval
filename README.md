@@ -10,7 +10,7 @@ A personal paper list on Video Moment Retrieval (VMR), or Natural Language Video
 
 Summarized by,
 
-- [VMR papers by methods](./plist-by-methods.md)
+- :star:  ​[VMR papers by methods](./plist-by-methods.md)
 - [VMR papers by scholars](./plist-by-people.md)
 - [VMR papers by year](./plist-by-year.md)
 
@@ -21,10 +21,8 @@ Summarized by,
 ### **Survey**
 
 - [视频片段检索研究综述, 软件学报，2020](http://www.jos.org.cn/jos/article/abstract/6707)
-- [A survey on natural language video localization](https://arxiv.org/abs/2104.00234). *in ArXiv 2021*
 - [A survey on temporal sentence grounding in videos](https://arxiv.org/abs/2109.08039). *in ArXiv 2021*
 - [The Elements of Temporal Sentence Grounding in Videos: A Survey and Future Directions](https://arxiv.org/abs/2201.08071). *in ArXiv 2022*
-  - refer also to the Ph.D. thesis of the first auther
 
 
 ### Datasets
@@ -37,7 +35,7 @@ Summarized by,
 | [**DiDeMo**](<https://github.com/LisaAnne/LocalizingMoments>) |      Flickr      |      Open       |
 |     [**MAD**](https://github.com/Soldelli/MAD)， CVPR22      |      Movie       |      Open       |
 
-更多信息，参考[this paper](https://openaccess.thecvf.com/content/ICCV2021W/CVEU/papers/Soldan_VLG-Net_Video-Language_Graph_Matching_Network_for_Video_Grounding_ICCVW_2021_paper.pdf)
+Referring to [this paper](https://openaccess.thecvf.com/content/ICCV2021W/CVEU/papers/Soldan_VLG-Net_Video-Language_Graph_Matching_Network_for_Video_Grounding_ICCVW_2021_paper.pdf), more info,
 
 | Dataset              | Video # | VL-pair# --> train | val   | Test  | Vocab Size |
 | -------------------- | ------- | ------------------ | ----- | ----- | ---------- |
@@ -52,9 +50,9 @@ Normally, top three is widely used. Then processed feature,
 >
 > Text: 1) pretained word embeddings, e.g. GloVe 2) pre-trained language models, e.g. BERT
 >
-> NEW MAD: by CLIP.
+> NEW MAD: both by CLIP.
 
-下载提取的feature， 参考
+extracted features can be downloaded from
 
 - https://github.com/microsoft/VideoX/tree/master/MS-2D-TAN
 
