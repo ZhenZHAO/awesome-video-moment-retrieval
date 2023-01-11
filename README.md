@@ -5,4 +5,4 @@ A personal paper list on Video Moment Retrieval (VMR), or Natural Language Video
 summarized by
 - VMR papers by scholars
 - VMR papers by methods
-- VMR papers by year
+- [VMR papers by year]()
