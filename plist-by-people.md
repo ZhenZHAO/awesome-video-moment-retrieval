@@ -213,25 +213,29 @@ Xin Sun -上交
 
 Liu daizong - 北大 
 
-- Progressively Guide to Attend: An Iterative Alignment Framework for Temporal Sentence Grounding, EMNLP 2021
-  - https://github.com/liudaizong/IA-Net --- cannot reproduce
-- Context-aware Biaffine Localizing Network for Temporal Sentence Grounding, CVPR 2021
-  - https://github.com/liudaizong/CBLN --- no code
-- Jointly Cross- and Self-Modal Graph Attention Network for Query-Based Moment Localization, MM2020
+- **CSMGAN:**  [Jointly Cross- and Self-Modal Graph Attention Network for Query-Based Moment Localization](https://arxiv.org/abs/2008.01403), MM2020
   - https://github.com/liudaizong/CSMGAN 
-- [Hierarchical local- global transformer for temporal sentence grounding](https://arxiv.org/pdf/2208.14882.pdf)
-- [Memory-guided semantic learning network for temporal sentence grounding](https://www.aaai.org/AAAI22Papers/AAAI-111.LiuD.pdf), AAAI 2022
-- [exploring motion and appearance information for temporal sentence grounding](https://www.aaai.org/AAAI22Papers/AAAI-112.LiuD.pdf), AAAI 2022
-- Unsupervised temporal video grounding with deep semantic clustering, AAAI 2022
-- Reducing the vision and language bias for temporal sentence grounding, MM 2022
-- [Skimming, Locating, then Perusing: A Human-Like Framework for Natural Language Video Localization](https://arxiv.org/abs/2207.13450), MM 2022
-- A Hybird Alignment Loss for Temporal Moment Localization with Natural Language, ICME 2022
-- [Learning to Focus on the Foreground for Temporal Sentence Grounding](https://aclanthology.org/2022.coling-1.490.pdf), Coling 2022
-- Reasoning step-by-step: Temporal sentence localization in videos via deep rectification-modulation network, Coling 2020
-- Adaptive Proposal Generation Network for Temporal Sentence Localization in Videos， EMNLP 2021
-- Few-Shot Temporal Sentence Grounding via Memory-Guided Semantic Learning, TCSVT, 2022
-- **MA3SRN**: [Exploring Optical-Flow-Guided Motion and Detection-Based Appearance for Temporal Sentence Grounding](https://arxiv.org/pdf/2203.02966.pdf)
+- **RMN:** [Reasoning step-by-step: Temporal sentence localization in videos via deep rectification-modulation network](https://aclanthology.org/2020.coling-main.167/), Coling 2020
+- **APGN:** [Adaptive Proposal Generation Network for Temporal Sentence Localization in Videos](https://arxiv.org/abs/2109.06398), EMNLP 2021
+- **IA-Net:** [Progressively Guide to Attend: An Iterative Alignment Framework for Temporal Sentence Grounding](https://arxiv.org/pdf/2109.06400.pdf), EMNLP 2021
+  - https://github.com/liudaizong/IA-Net --- cannot reproduce
+- **CBLN:** [Context-aware Biaffine Localizing Network for Temporal Sentence Grounding](https://arxiv.org/pdf/2103.11555.pdf), CVPR 2021
+  - https://github.com/liudaizong/CBLN --- no code
+- [Hierarchical local- global transformer for temporal sentence grounding](https://arxiv.org/pdf/2208.14882.pdf), arxiv 2022
+- **MGSL:** [Memory-guided semantic learning network for temporal sentence grounding](https://www.aaai.org/AAAI22Papers/AAAI-111.LiuD.pdf), AAAI 2022
+- **MARN:** [exploring motion and appearance information for temporal sentence grounding](https://www.aaai.org/AAAI22Papers/AAAI-112.LiuD.pdf), AAAI 2022
+- **DSCNet:** Unsupervised temporal video grounding with deep semantic clustering, AAAI 2022
+- **D-TSG:** [Reducing the vision and language bias for temporal sentence grounding](https://dl.acm.org/doi/pdf/10.1145/3503161.3547969), MM 2022
+- **SLP:** [Skimming, Locating, then Perusing: A Human-Like Framework for Natural Language Video Localization](https://arxiv.org/abs/2207.13450), MM 2022
+- [A Hybird Alignment Loss for Temporal Moment Localization with Natural Language](https://ieeexplore.ieee.org/abstract/document/9859675/), ICME 2022
+- **GLF:** [Learning to Focus on the Foreground for Temporal Sentence Grounding](https://aclanthology.org/2022.coling-1.490.pdf), Coling 2022
+- [Few-Shot Temporal Sentence Grounding via Memory-Guided Semantic Learning](https://ieeexplore.ieee.org/abstract/document/9956804), TCSVT, 2022
+- **MMCDA:** [Multi-Modal Cross-Domain Alignment Network for Video Moment Retrieval ](https://arxiv.org/pdf/2209.11572.pdf), TMM 2022
+- **MA3SRN**: [Exploring Optical-Flow-Guided Motion and Detection-Based Appearance for Temporal Sentence Grounding](https://arxiv.org/pdf/2203.02966.pdf), 2022
   - SOTA, high.. no code
+- [Rethinking the Video Sampling and Reasoning Strategies for Temporal Sentence Grounding](https://arxiv.org/abs/2301.00514), EMNLP 2022
+- **MHST:** [Hypotheses Tree Building for One-Shot Temporal Sentence Localization](https://arxiv.org/pdf/2301.01871.pdf), AAAI 2023
+- 
 - https://scholar.google.com/citations?user=lUw7tVIAAAAJ&hl=en, 
   - many many many papers on VMR, but where are useful source codes?
 
